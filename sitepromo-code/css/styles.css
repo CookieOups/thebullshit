@@ -1,0 +1,93 @@
+/* CSS HANGOVER - UPDATE : 18.02.2014 */
+
+
+@font-face {
+    font-family: 'edmondsansbold';
+    src: url('../font/edmondsans-bold-webfont.eot');
+    src: url('../font/edmondsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-bold-webfont.woff') format('woff'),
+         url('../font/edmondsans-bold-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-bold-webfont.svg#edmondsansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'edmondsansmedium';
+    src: url('../font/edmondsans-medium-webfont.eot');
+    src: url('../font/edmondsans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-medium-webfont.woff') format('woff'),
+         url('../font/edmondsans-medium-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-medium-webfont.svg#edmondsansmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'edmondsans_regularregular';
+    src: url('../font/edmondsans-regular-webfont.eot');
+    src: url('../font/edmondsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-regular-webfont.woff') format('woff'),
+         url('../font/edmondsans-regular-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-regular-webfont.svg#edmondsans_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*----------------------------JULIEN--------------------------------*/
+
+
+
+body {
+	background: #e67e22;
+	margin: 0;
+	padding: 0;
+}
+
+
+#menu {
+	height: 100%;
+	background: rgba(255,255,255,.001) url(../img/menu-btn.png) no-repeat right top;
+	width: 250px;
+	font-family: 'edmondsansmedium';
+	font-size: 20px;
+	position: fixed;
+	left: -205px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	
+	
+}
+
+#menu:hover {
+	left: 0px;
+	background: rgba(255,255,255,1)  url(../img/menu-btn.png) no-repeat right top;
+}
+
+#menu ul {
+	padding-top: 60px;
+}
+
+#menu ul li {
+	list-style-type: none;
+	margin: 20px;
+}
+
+#menu ul li a {
+	text-decoration: none;
+	color: #e67e22;
+}
+
+
+
