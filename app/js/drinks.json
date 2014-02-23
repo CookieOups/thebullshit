@@ -1,0 +1,39 @@
+{
+	"drinks": {
+		"biere": {
+			"name": "biere",
+			"value": 1,
+			"color": ""
+		},
+		"biere spc": {
+			"name": "biere spc",
+			"value": 2,
+			"color": ""
+		},
+		"whisky": {
+			"name": "whisky",
+			"value": 4,
+			"color": ""
+		},
+		"rhum": {
+			"name": "rhum",
+			"value": 4,
+			"color": ""
+		},
+		"vodka": {
+			"name": "vodka",
+			"value": 4,
+			"color": ""
+		},
+		"vin": {
+			"name": "vin",
+			"value": 3,
+			"color": ""
+		},
+		"cocktail": {
+			"name": "cocktail",
+			"value": 4,
+			"color": ""
+		}
+	}
+}

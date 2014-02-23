@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Hangover</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="font/stylesheet.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body id="js-body">
+
+        <!-- Add your site or application content here -->
+
+        <div id="view-container">
+            
+            <section class="menu" id="menu">
+                <ul class="menu-list">
+                    <li class="profile js-menu-button" data-gotopage="profile">Profil</li>
+                    <li class="homepage js-menu-button" data-gotopage="homepage">Accueil</li>
+                    <li class="badges js-menu-button" data-gotopage="badges">Badges</li>
+                    <li class="challenges js-menu-button" data-gotopage="challenges">Défis</li>
+                </ul>
+            </section>
+
+            <section class="splash translated displayed clearfix" id="js-splash">
+                <div class="splash-container">
+                    <div class="hangover-title">hangover</div>
+                    <div class="circle">
+                        <div class="glass">
+                            <div class="rock-top"></div>
+                            <div class="rock-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page homepage translated displayed clearfix" id="homepage">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Hangover</span>
+                    <button class="archive-party js-gotopage-button" id="js-archive-party" data-gotopage="end-party">Archiver la soirée</button>
+                </header>
+                <div class="content clearfix">
+                    <div class="headline centered">
+                        <span>Tu es en train de boire</span>
+                        <span class="now-drinking" id="js-now-drinking">Bière</span>
+                    </div>
+                    <button class="add-drink" id="js-add-drink">Ajouter un verre</button>
+                    <button class="change-drink js-gotopage-button" id="js-change-drink" data-gotopage="alcohol-choice">Changer de boisson</button>
+                    <span class="title title-drank-tonight">Ce que tu as bu ce soir:</span>
+                    <ul class="drank-tonight clearfix" id="js-drank-tonight">
+
+                    </ul>
+                </div>
+                <canvas class="liquid-canvas" id="js-liquid-canvas">L'élément canvas n'est pas supporté sur votre navigateur.</canvas>
+            </section>
+
+            <section class="page challenges" id="challenges">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Défis</span>
+                </header>
+                <div class="content">
+                    <div class="challenge-img" id="js-challenge-img"></div>
+                    <button class="next-challenge" id="js-next-challenge">Défi suivant</button>
+                </div>
+
+            </section>
+
+            <section class="page profile" id="profile">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Profil</span>
+                </header>
+                <div class="content">
+                    <div class="profile-head clearfix">
+                        <div class="profile-pic"></div>
+                        <div class="profile-text">
+                            <div class="col">
+                                <span class="number" id="js-glasses-drank">50</span>
+                                <span class="capt">Verres</span>
+                            </div>
+                            <div class="col">
+                                <span class="number" id="js-different-drank">20</span>
+                                <span class="capt">Différents</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="title">Temps passé à boire</span>
+
+                    <div class="time-passed-drinking centered">
+                        <div class="time">
+                            <span class="months number" id="js-months">00</span> <span class="two-dots">:</span>
+                            <span class="days number" id="js-days">00</span> <span class="two-dots">:</span>
+                            <span class="hours number" id="js-hours">00</span> <span class="two-dots">:</span>
+                            <span class="minutes number" id="js-minutes">00</span>
+                        </div>
+                        <div class="units">
+                            <span class="months">Mois</span>
+                            <span class="days">Jours</span>
+                            <span class="hours">Heures</span>
+                            <span class="minutes">Minutes</span>
+                        </div>
+                    </div>
+
+                    <span class="title">Boissons bues</span>
+
+                    <div class="graph" id="js-graph"></div>
+
+                    <span class="title">Tes badges obtenus</span>
+
+                    <ul class="badges-unlocked clearfix">
+                        <li class="badge-belge"></li>
+                        <li class="badge-russe"></li>
+                        <li class="badge-californien"></li>
+                        <li class="badge-ecosse"></li>
+                        <li class="badge-cubain"></li>
+                        <li class="badge-oenologue"></li>
+                    </ul>
+
+                    <span class="title">Archives de soirée</span>
+
+                    <div class="ratings">
+                        <div class="rating clearfix">
+                            <div class="rating-txt">- 10 Janvier 2014</div>
+                            <div class="stars stars-5"></div>
+                        </div>
+                        <div class="rating clearfix">
+                            <div class="rating-txt">- 15 Novembre 2013</div>
+                            <div class="stars stars-3"></div>
+                        </div>
+                        <div class="rating clearfix">
+                            <div class="rating-txt">- 13 Octobre 2013</div>
+                            <div class="stars stars-0"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page badges" id="badges">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Badges</span>
+                </header>
+                <div class="content">
+                    <ul class="badges-list clearfix" id="js-badges-list">
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-10-verres"></div>
+                                <span>Le 10ème</span>
+                            </li>
+                            <li>
+                                <div class="badge-25-verres"></div>
+                                <span>Le 25ème</span>
+                            </li>
+                            <li>
+                                <div class="badge-50-verres"></div>
+                                <span>Le 50ème</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-100-verres"></div>
+                                <span>Le 100ème</span>
+                            </li>
+                            <li>
+                                <div class="badge-150-verres"></div>
+                                <span>Le 150ème</span>
+                            </li>
+                            <li>
+                                <div class="badge-200-verres"></div>
+                                <span>Le 200ème</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-belge"></div>
+                                <span>Le belge</span>
+                            </li>
+                            <li>
+                                <div class="badge-russe"></div>
+                                <span>Le russe</span>
+                            </li>
+                            <li>
+                                <div class="badge-californien"></div>
+                                <span>Le californien</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-ecossais"></div>
+                                <span>L'écossais</span>
+                            </li>
+                            <li>
+                                <div class="badge-cubain"></div>
+                                <span>Le cubain</span>
+                            </li>
+                            <li>
+                                <div class="badge-oenologue"></div>
+                                <span>L'oenologue</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-moine"></div>
+                                <span>Le moine</span>
+                            </li>
+                            <li>
+                                <div class="badge-petitjoueur"></div>
+                                <span>Le petit joueur</span>
+                            </li>
+                            <li>
+                                <div class="badge-casanier"></div>
+                                <span>Le casanier</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-sorteur"></div>
+                                <span>Le sorteur</span>
+                            </li>
+                            <li>
+                                <div class="badge-alcoolique"></div>
+                                <span>L'alcoolique</span>
+                            </li>
+                            <li>
+                                <div class="badge-12h"></div>
+                                <span>12 heures</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-24h"></div>
+                                <span>24 heures</span>
+                            </li>
+                            <li>
+                                <div class="badge-7j"></div>
+                                <span>7 jours</span>
+                            </li>
+                            <li>
+                                <div class="badge-1m"></div>
+                                <span>1 mois</span>
+                            </li>
+                        </div>
+                        <div class="badge-container clearfix">
+                            <li>
+                                <div class="badge-6m"></div>
+                                <span>6 mois</span>
+                            </li>
+                            <li>
+                                <div class="badge-12m"></div>
+                                <span>12 mois</span>
+                            </li>
+                            <li>
+                                <div class="badge-24m"></div>
+                                <span>24 mois</span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="page alcohol-choice" id="alcohol-choice">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Choisis ton alcool</span>
+                </header>
+                <div class="content">
+                    <ul class="alcohols-list clearfix">
+                        <li class="js-alcohol-list-button" data-alcohol="biere" data-gotopage="homepage">
+                            <div class="biere"></div>
+                            <span>Bière</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="biere spc" data-gotopage="homepage">
+                            <div class="biere-spc"></div>
+                            <span>Bière spc</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="rhum" data-gotopage="homepage">
+                            <div class="rhum"></div>
+                            <span>Rhum</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="whisky" data-gotopage="homepage">
+                            <div class="whisky"></div>
+                            <span>Whisky</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="vodka" data-gotopage="homepage">
+                            <div class="vodka"></div>
+                            <span>Vodka</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="vin" data-gotopage="homepage">
+                            <div class="vin"></div>
+                            <span>Vin</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="cocktail" data-gotopage="homepage">
+                            <div class="cocktail"></div>
+                            <span>Cocktail</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="soft" data-gotopage="homepage">
+                            <div class="soft"></div>
+                            <span>Soft</span>
+                        </li>
+                        <li class="js-alcohol-list-button" data-alcohol="autres" data-gotopage="homepage">
+                            <div class="autres"></div>
+                            <span>Autres</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="page end-party" id="end-party">
+                <header>
+                    <button class="menu-button js-gotomenu-button">Menu-button</button>
+                    <span class="title">Fin de soirée</span>
+                </header>
+                <div class="content">
+                    <div class="caution-frame">
+                        <div class="caution"></div>
+                        <span class="caution-text">Ne conduis pas après tout ce que tu as bu, ivrogne !</span>
+                        <span class="caution-text">Et penses à boire de l’eau pour éviter la gueule de bois !</span>
+                    </div>
+                    <button class="continue-party js-gotopage-button" id="js-continue-party" data-gotopage="homepage">Continuer la soirée</button>
+                    <button class="archive-party js-gotopage-button" id="js-archive-party" data-archive="yes" data-gotopage="homepage">Archiver la soirée</button>
+                </div>
+            </sectoin>
+
+        </div>
+
+
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
