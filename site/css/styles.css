@@ -1,0 +1,774 @@
+
+@font-face {
+    font-family: 'edmondsansbold';
+    src: url('../font/edmondsans-bold-webfont-webfont.eot');
+    src: url('../font/edmondsans-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-bold-webfont-webfont.woff') format('woff'),
+         url('../font/edmondsans-bold-webfont-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-bold-webfont-webfont.svg#edmondsansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'edmondsansmedium';
+    src: url('../font/edmondsans-medium-webfont-webfont.eot');
+    src: url('../font/edmondsans-medium-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-medium-webfont-webfont.woff') format('woff'),
+         url('../font/edmondsans-medium-webfont-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-medium-webfont-webfont.svg#edmondsansmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'edmondsans_regularregular';
+    src: url('../font/edmondsans-regular-webfont-webfont.eot');
+    src: url('../font/edmondsans-regular-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/edmondsans-regular-webfont-webfont.woff') format('woff'),
+         url('../font/edmondsans-regular-webfont-webfont.ttf') format('truetype'),
+         url('../font/edmondsans-regular-webfont-webfont.svg#edmondsans_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*============================== END FONTFACE===============================*/
+
+
+html {
+	height: 100%;
+}
+
+
+body {
+	font-family: 'edmondsans_regularregular';
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	overflow-y: scroll;
+	background-color: #fff;
+	height: 100%;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+}
+
+section {
+	height: 100%;
+}
+
+
+.content {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.title {
+	max-width: 360px;
+	margin: 0 auto;
+}
+
+
+h1 {
+	font-family: 'edmondsansbold';
+}
+
+
+.title h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: 'edmondsansmedium';
+    position: relative;
+    top: 100px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title h2 span {
+	font-family: 'edmondsansbold';
+}
+
+#triangleWrapper {
+    width: 100%;
+}
+
+.segmentTriangle {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(to left top, white 50%, transparent 1%);
+    opacity:0.1;
+}
+
+
+/*============================== MENU ===============================*/
+
+
+header nav{
+    height:100%;
+    width:240px;
+    background:#fff;
+    position:fixed;
+    z-index:2000;
+    -webkit-transition:.2s;
+    -moz-transition:.2s;
+    -o-transition:.2s;
+    transition:.2s;
+}
+
+header .nav_on{
+    left:-240px;
+}
+
+header .nav_off{
+    left:0px;
+}
+
+
+header nav ul{
+    height:auto;
+    width:auto;
+    margin-top:0px;
+    padding-left: 0px;
+ 
+}
+
+header nav ul li{
+    list-style-type: none;
+    font-family: 'edmondsans_regularregular';
+    font-size: 20px;
+    border-bottom: 1px solid #e67e22;
+}
+
+
+header nav ul li a{
+    display:block;
+    text-decoration:none;
+    color: #e67e22;
+    padding: 30px 50px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+
+header nav ul li a:hover{
+    color: #ffffff;
+    background: #e67e22;
+}
+
+a.turquoise:hover {
+    background: #1abc9c;
+}
+
+a.rouge:hover {
+    background: #e74c3c;
+}
+
+a.bleu:hover {
+    background: #3498db;
+}
+a.vert:hover {
+    background: #2ecc71;
+}
+
+
+
+header .nav_botton{
+    width:50px;
+    height:50px; 
+    position:relative;
+    z-index:2000;
+    margin-left:240px;
+    cursor:pointer;
+    top:0px;
+    -webkit-transition:.3s;
+    -moz-transition:.3s;
+    -o-transition:.3s;
+    transition:.3s;
+}
+
+header .on{
+    background: url('../img/menu-btn.png') center center;
+}
+
+header .off{
+    background: url('../img/menu-btn.png') center center;
+}
+
+
+/*============================NAV SECONDAIRE===============================*/
+
+
+.navstate {
+	position: fixed;
+	top: 40%;
+	right: 50px;
+	z-index: 1000;
+}
+.round{
+	background: url('../img/navstate.png');
+	height: 35px;
+	width: 25px;
+	display: block;
+	text-indent: -9999px; 
+}
+
+.round.active{
+	background: url('../img/navstateactif.png');
+}
+
+
+#intro ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#intro ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#intro ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#intro ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #e67e22;
+}
+
+
+#intro {
+    position: relative;
+	background-color: #e67e22;
+	width: 100%;
+}
+
+#intro .content {
+	background: url('../img/photo.png');
+	background-size: cover;
+	background-position: center center;
+}
+
+
+
+
+/*============================== SECTION ACCUEIL ===============================*/
+
+#accueil ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#accueil ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#accueil ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e67e22;
+}
+#accueil ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #e67e22;
+}
+
+
+#accueil {
+    position: relative;
+	background-color: #e67e22;
+	width: 100%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+    font-family: 'edmondsansbold';
+}
+.apercu-app {
+   position: relative;
+   margin: 70px auto;
+   margin-bottom: 20px;
+   max-width: 530px;
+}
+
+.apercu-app img {
+	width: 100%;
+	margin-top: 80px;
+}
+
+
+/*============================== SECTION DESCRIPTION ===============================*/
+
+#description ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #1abc9c;
+}
+#description ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #1abc9c;
+}
+#description ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #1abc9c;
+}
+#description ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #1abc9c;
+}
+
+
+#description {
+    position: relative;
+    background-color: #1abc9c;
+    width: 100%;
+}
+
+
+
+#description p {
+    width: 100%;
+    padding-top: 20px;
+    z-index: 2;
+}
+
+
+#top {
+    margin: 200px auto;
+    max-width: 60%;
+    z-index: 3;
+    position: relative;
+    font-family: 'edmondsans_regularregular';
+    line-height: 20px;
+    
+}
+
+/*============================== VIDEO DESCRIPTION ===============================*/
+
+#video ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e74c3c;
+}
+#video ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e74c3c;
+}
+#video ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #e74c3c;
+}
+#video ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #e74c3c;
+}
+
+
+#video {
+    position: relative;
+    background-color: #e74c3c;
+    width: 100%;
+    display: block;
+}
+
+#video video {
+	max-width: 720px;
+	margin-top: 150px;
+	margin-left: -360px;
+	left: 50%;
+	position: relative;
+}
+
+
+
+
+/*============================== SECTION AVENIR ===============================*/
+
+
+#avenir ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #3498db;
+}
+#avenir ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #3498db;
+}
+#avenir ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #3498db;
+}
+#avenir ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #3498db;
+}
+
+#avenir {
+    position: relative;
+    background-color: #3498db;
+    width: 100%;
+}
+
+
+#avenir #box {
+	max-width: 600px;
+	position: relative;
+	margin-top: 150px;
+	line-height: 20px;
+	left: 50%;
+	margin-left: -300px;
+}
+
+#avenir img {
+	float: left;
+	margin-right: 20px;
+}
+
+
+#avenir p {
+    max-width: 575px;
+    margin-top: 20px;
+    position: relative;
+    font-family: 'edmondsans_regularregular';
+    line-height: 20px;
+
+}
+
+.right {
+    float: right;
+    display: block;
+    margin-right: 30%;
+    margin-top: 180px;
+    position: relative;
+}
+
+.left {
+    float: left;
+}
+
+
+/*============================= SECTION TELECHARGER ==========================*/
+
+#telecharger ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #2ecc71;
+}
+#telecharger ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #2ecc71;
+}
+#telecharger ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #2ecc71;
+}
+#telecharger ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #2ecc71;
+}
+
+#telecharger {
+	position: relative;
+    background-color: #2ecc71;
+    width: 100%;
+    	
+}
+
+#iphone_dwn {
+	width: 150px;
+	margin: 130px auto 0;
+	position: relative;
+	
+}
+
+#iphone_dwn img {
+	width: 150px;
+	position: absolute;
+	z-index: 4;
+}
+
+
+#iphone_dwn video {
+	position: absolute;
+	z-index: 5;
+	width: 130px;
+	margin: 44px 0 0 10px;
+}
+
+
+.download {
+	border: 3px solid white;
+	color: white;
+	font-size: 18px;
+	font-family: 'edmondsansmedium';
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 15px;
+	position: relative;
+	left: 50%;
+	top: 380px;
+	margin-left: -127px;
+	z-index: 2;
+	opacity: 0.7
+	
+}
+
+.download:hover{
+	opacity: 1;
+}
+
+/*============================= FOOTER  ==========================*/
+footer{
+	background-color: #FFF;
+	height: 140px;
+	
+}
+
+footer a {
+	color: #d35400;
+	font-family:'edmondsans_regularregular';
+	font-size: 12px;
+	text-decoration: none;
+	line-height: 22px;
+}
+footer a:hover {
+	font-family: 'edmondsansbold';
+}
+footer img {
+	float: left;
+	margin:0px 20px 0 20px;
+}
+
+footer ul li:first-child {
+	margin-top: 25px;
+}
+
+.credit{
+	font-family: 'edmondsansmedium';
+
+}
+a.twitter {
+	text-indent: -9999px;
+	
+}
+
+.twitter {
+	float: right;
+margin-top: -83px;
+}
+.twitter:hover {margin-top: -80px;}
+
+/*============================= CREDITS TELECHARGER ==========================*/
+
+#credits ::-moz-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #7a4d36;
+}
+#credits ::-webkit-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #7a4d36;
+}
+#credits ::-o-selection {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    color: #7a4d36;
+}
+#credits ::selection {
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+color: #7a4d36;
+}
+
+#credits {
+    position: relative;
+    background-color: #7a4d36;
+    width: 100%;
+        
+}
+
+#credits a {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'edmondsans_regularregular';
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+} 
+
+#credits a:hover {
+    font-family: 'edmondsansbold';
+}
+
+.credit-top {
+    margin-top: 200px;
+}
+
+.credit-bottom {
+    margin-top: 60px;
+}
+
+#credits ul li {
+    margin-bottom: 20px;
+}
+
+#credits ul li {
+    font-size: 18px;
+    font-family: 'edmondsans_regularregular';
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+    width: 100%;
+    line-height: 20px;
+}
+
+
+#credits ul li span {
+    font-family: 'edmondsansbold';
+}
+
+
+@media screen and (max-width: 850px) {
+
+    .navstate{
+	    display: none;
+    }
+   
+    }
+
+@media screen and (max-width: 640px) {
+	
+	#top {
+    margin: 120px auto;
+    max-width: 70%;
+    
+    }
+    
+    
+    .title h2 {
+	    text-transform: uppercase;
+	    font-size: 20px;
+	    line-height: 28px;
+	    font-family: 'edmondsansmedium';
+	    position: relative;
+	    top: 50px;
+	    border-bottom: 2px solid #fff;
+	    padding-bottom: 20px;
+	    width: 100%;
+	    text-align: center;
+	    margin: 0 auto;
+    }
+    
+    
+    .navstate{
+	    display: none;
+    }
+    
+    
+    #video video {
+		max-width: 420px;
+		margin-top: 150px;
+		margin-left: -210px;
+		left: 50%;
+		position: relative;
+	}
+    
+    
+    #avenir #box {
+		width: 90%;
+		font-size: 14px;
+		position: relative;
+		margin: 100px auto;
+		left: 0;
+	}
+	
+	#avenir #box p {
+		line-height: 18px;
+	}
+    
+    #avenir img {
+	    display: none;
+    }
+    
+    #iphone_dwn {
+	   margin-top: 70px;
+    }
+	
+
+	
+	.download {
+		top: 370px;
+	}
+	
+	
+}
+
+
+@media screen and (max-width: 450px) {
+	 #avenir #box {
+		width: 90%;
+		font-size: 14px;
+		position: relative;
+		margin: 70px auto;
+		left: 0;
+	}
+	
+	
+	#description p {
+	    width: 100%;
+	    padding-top: 0px;
+	    z-index: 2;
+    }
+    
+    #description p:first-child {
+	    margin-top: -40px;
+    }
+    
+    #description p:last-child {
+	    padding-top: 20px;
+    }
+	
+	
+    
+    .twitter {
+	    float: left;
+	    margin: 0;
+    }
+    .twitter img {
+	    margin: 0;
+	    width: 50%;
+	    height: 50%;
+    }
+    
+     #video video {
+		max-width: 300px;
+		margin-top: 150px;
+		margin-left: -150px;
+		left: 50%;
+		position: relative;
+	}
+    
+    
+	
+	
+	
+	
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="viewport" content="user-scalable=no" />
+	<title>HANGOVER</title>
+
+	 <link rel="icon" type="image/png" href="img/favicon.png" />
+	  <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" /><![endif]-->
+	 <link type="text/css" rel="stylesheet" href="css/styles.css" />
+	 <link type="text/css" rel="stylesheet" href="css/reset.css" />
+	 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+	  <script type="text/javascript">
+
+			
+			
+			
+			
+			//NAV SECONDAIRE
+			
+			$(document).ready(function(){
+			
+			 $(".nav_botton").click(function(){
+			    if ($(this).hasClass('on')) {
+			            $(this).removeClass('on').addClass('off');
+			            $('.content_anonymous').removeClass('content_on').addClass('content_off');
+			            $('nav').removeClass('nav_on').addClass('nav_off');
+			             
+			        } else{
+			            $(this).addClass('on').removeClass('off');
+			            $('.content_anonymous').removeClass('content_off').addClass('content_on');
+			            $('nav').removeClass('nav_off').addClass('nav_on');
+			        }
+			  });
+			
+			$('a[href^="#"]').click(function(){  
+			  	var the_id = $(this).attr("href");  
+			    $('html, body').animate({  
+			        scrollTop:$(the_id).offset().top  
+			    }, 'slow');  
+			    return false;  
+			   });
+			   
+			   var navItems = document.querySelectorAll(".navstate li a");
+			   var sections = document.getElementsByTagName("section");
+			  
+			   
+			   for(i = 0; i < sections.length; i++){
+				   sections[i].topPos = sections[i].offsetTop - sections[i].clientHeight/2;
+				   sections[i].botPos = sections[i].topPos + sections[i].clientHeight;
+				   console.log(sections[i].topPos + " - " + sections[i].botPos);
+			   }
+			   sections[0].topPos = -2000; // fix scroll bounce
+			   
+			   
+			   
+			   document.addEventListener("scroll", function(event){
+			   	updateMenu(event, this);
+			   });
+			   
+			   function updateMenu(ev, el){
+					var currentScrollPos = document.body.scrollTop;
+					for(i = 0; i < sections.length; i++) {
+						if(currentScrollPos > sections[i].topPos && currentScrollPos < sections[i].botPos){
+							navItems[i].classList.add("active");
+						} else {
+							navItems[i].classList.remove("active");
+						}
+					}
+				}
+			   
+			});
+			
+			
+			
+			
+			
+	 </script>
+
+</head>
+
+<body>
+	<header>
+		<nav class="nav_on">
+			<div class="nav_botton on">    
+            </div>
+			<ul>
+				<li><a class="orange" href="#accueil">Accueil</a></li>
+				<li><a class="turquoise" href="#description">C'est quoi ?</a></li>
+				<li><a class="rouge"  href="#video">À voir</a></li>
+				<li><a class="bleu"  href="#avenir">Et après ?</a></li>
+				<li><a class="vert"  href="#telecharger">L'obtenir !</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	
+	<ul class="navstate">
+				<li><a class="round active" href="#intro">Intro</a></li>
+				<li><a class="round" href="#accueil">Accueil</a></li>
+				<li><a class="round" href="#description">C'est quoi ?</a></li>
+				<li><a class="round" href="#video">À voir</a></li>
+				<li><a class="round" href="#avenir">Et après ?</a></li>
+				<li><a class="round" href="#telecharger">L'obtenir !</a></li>
+	</ul>
+	
+
+	<div id="container">	
+		
+				<section id="intro">
+			
+			<div class="content">
+				
+				</div>
+
+			
+			</div>
+			</div>
+		</section>
+
+
+		<section id="accueil">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2><span>Hangover</span></h2>
+				</div>
+				<div class="apercu-app">
+					<img class="apercu-01" src="img/home-apercu01.png" alt="Aperçu de l'application"/>
+				</div>
+
+				
+			</div>
+			</div>
+		</section>
+
+		<section id="description">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2><span>Hangover</span> c'est quoi ?</h2>
+				</div>
+				
+				<div id="top">
+				<p>Hangover c'est une application mobile qui te permet de pimenter tes soirées.
+				Avec Hangover tu peux au fur et à mesure de la soirée ajouter à l'aide d'un bouton les verres que tu es en train de boire tout en récoltant des points. Ensuite avec ces points tu peux débloquer des badges comme par exemple le badge du “bon belge” pour les amateurs de bières.</p>
+
+				<p>Hangover te proposera aussi des défis aléatoires (à réaliser seul ou entre amis) comme par exemple “Affoner le verre de ton voisin sans qu'il s'en aperçoive” </p>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<section id="video">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2>Voir la vidéo </h2>
+				</div>
+				<video controls="controls" preload="auto">
+				  <source src="video/video.mp4" type="video/mp4" />
+				  <source src="video/video.webm" type="video/webm" />
+				  <source src="video/video.ogv" type="video/ogg" />
+				</video>
+			</div>
+			</div>
+		</section>
+
+		<section id="avenir">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2>Ce que va devenir <span>Hangover</span></h2>
+				</div>
+
+				<div id="box">
+					<img src="img/avenir-apercu01.png" alt="Aperçus de l'application" />
+				
+					<p>Dans les premiers temps nous allons tester l'application sur une série de personnes faisant partie de notre public cible. Cette étape va nous permettre de découvrir des éventuelles erreurs dans notre application.</p>
+
+					<p>Une fois notre user expérience réalisées et les éventuelles erreurs corrigées nous allons pouvoir lancer vraiment l'application sur le marché. Nous allons également pouvoir ouvrir un compte Twitter et Facebook pour pouvoir promouvoir notre application sans pour autant devoir dépenser des sommes astronomiques !</p>
+
+					<p>Finalement quand l'application sera lancée sur le marché nous allons bien évidemment rajouter des badges et des défis pour éviter que l'application tourne en rond et pourquoi pas rajouter d'autres fonctionnalités et la rendre native. </p>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<section id="telecharger">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2>Comment obtenir <span>Hangover</span></h2>
+				</div>
+				
+					<div id="iphone_dwn">
+						
+						<video autoplay="autoplay">
+						  <source src="video/video2.mp4" type="video/mp4" />
+						  <source src="video/video2.webm" type="video/webm" />
+						  <source src="video/video2.ogv" type="video/ogg" />
+						</video>
+						<img src="img/iphone_download.png" alt="Iphone" />
+					</div>
+				
+					<a class="download" href="http://williamrobert.be/dev/iLab4/">Lien Vers l'application</a>
+					
+
+					
+			</div>
+			</div>
+		</section>
+
+	
+	<footer>
+		<img src="img/logofooter.png" alt="Hangover" />
+
+		<ul>
+			<li><a href="http://amandineclerc.be/" target="_blank">Amandine Clerc</a></li>
+			<li><a href="http://b-vandegent.be/" target="_blank">Brieuc van de Gent</a></li>
+			<li><a href="http://www.julienhenet.be/" target="_blank">Julien Henet</a></li>
+			<li><a href="http://williamrobert.be/" target="_blank">William Robert</a></li>
+			<li><a class="credit" href="credits.html">Crédits</a></li>
+			<li><a class="twitter" href="https://twitter.com/Hang_over4" target="_blank"><img src="img/twitter.png" alt="twitter"/></a></li>
+			
+		</ul>
+
+
+	</footer>
+</div> <!-- end container -->
+
+</body>
+</html>

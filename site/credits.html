@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="viewport" content="user-scalable=no" />
+	<title>HANGOVER</title>
+
+	 <link rel="icon" type="image/png" href="img/favicon.png" />
+	  <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" /><![endif]-->
+	 <link type="text/css" rel="stylesheet" href="css/styles.css" />
+	 <link type="text/css" rel="stylesheet" href="css/reset.css" />
+	 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+	  <script type="text/javascript">
+
+	
+			//NAV SECONDAIRE
+			
+			$(document).ready(function(){
+			
+			 $(".nav_botton").click(function(){
+			    if ($(this).hasClass('on')) {
+			            $(this).removeClass('on').addClass('off');
+			            $('.content_anonymous').removeClass('content_on').addClass('content_off');
+			            $('nav').removeClass('nav_on').addClass('nav_off');
+			             
+			        } else{
+			            $(this).addClass('on').removeClass('off');
+			            $('.content_anonymous').removeClass('content_off').addClass('content_on');
+			            $('nav').removeClass('nav_off').addClass('nav_on');
+			        }
+			  });
+			
+			$('a[href^="#"]').click(function(){  
+			  	var the_id = $(this).attr("href");  
+			    $('html, body').animate({  
+			        scrollTop:$(the_id).offset().top  
+			    }, 'slow');  
+			    return false;  
+			   });
+			   
+			   var navItems = document.querySelectorAll(".navstate li a");
+			   
+			   var sections = document.getElementsByTagName("section");
+			   
+			   for(i = 0; i < sections.length; i++){
+				   sections[i].topPos = sections[i].offsetTop;
+				   sections[i].botPos = sections[i].topPos + sections[i].clientHeight;
+				   console.log(sections[i].topPos + " - " + sections[i].botPos);
+			   }
+			   sections[0].topPos = -2000; // fix scroll bounce
+			   
+			   
+			   
+			   for(i = 0; i < navItems.length; i++) {
+				   navItems[i].addEventListener("click", function(event){
+					   clickMenu(event, this);
+				   });
+			   }
+			   
+			   document.addEventListener("mousewheel", function(event){
+			   	updateMenu(event, this);
+			   });
+			   
+			   function updateMenu(ev, el){
+					var currentScrollPos = document.body.scrollTop;
+					for(i = 0; i < sections.length; i++) {
+						if(currentScrollPos > sections[i].topPos && currentScrollPos < sections[i].botPos){
+							navItems[i].classList.add("active");
+						} else {
+							navItems[i].classList.remove("active");
+						}
+					}
+				}
+			   
+			   function clickMenu(ev, el){
+				   for(i = 0; i < navItems.length; i++) {
+					   navItems[i].classList.remove("active");
+				   }
+				   el.classList.add("active");
+			   }
+			  
+			});
+			
+			
+			
+			
+			
+	 </script>
+
+</head>
+
+<body>
+	<header>
+		<nav class="nav_on">
+			<div class="nav_botton on">    
+            </div>
+			<ul>
+				<li><a class="orange" href="index.html#accueil">Accueil</a></li>
+				<li><a class="turquoise" href="index.html#description">C'est quoi ?</a></li>
+				<li><a class="rouge"  href="index.html#video">À voir</a></li>
+				<li><a class="bleu"  href="index.html#avenir">Et après ?</a></li>
+				<li><a class="vert"  href="index.html#telecharger">L'obtenir !</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	
+	<!--<ul class="navstate">
+				<li><a class="round active" href="#accueil">Accueil</a></li>
+				<li><a class="round" href="#description">C'est quoi ?</a></li>
+				<li><a class="round" href="#video">À voir</a></li>
+				<li><a class="round" href="#avenir">Et après ?</a></li>
+				<li><a class="round" href="#telecharger">L'obtenir !</a></li>
+	</ul>-->
+	
+
+	<div id="container">	
+
+		<section id="credits">
+			<div class="triangleWrapper">
+			<div class="segmentTriangle"></div>
+			<div class="content">
+				<div class="title">
+				<h2>Crédits </h2>
+
+				<div class="credit-top">
+					<ul>
+						<li><a href="http://thenounproject.com/">The Noun Project</a></li>
+						<li><a href="http://iconmonstr.com/">Iconmonstr</a></li>
+						<li><a href="http://flatuicolors.com/">Flat UI Colors</a></li>
+						<li><a href="http://jquery.com/">Librairie jQuery</a></li>
+					</ul>
+				</div>
+
+
+				<div class="credit-bottom">
+					<ul>
+						<li><span>Amandine Clerc</span> : Design de l'application et du site promotionnel</li>
+						<li><span>Brieuc vandeGent</span> : Design et Réalisation des badges</li>
+						<li><span>Julien Henet</span> :  Design de l'application et du site promotionnel</li>
+						<li><span>William Robert</span> : Développement</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+		</section>
+
+<footer>
+		<img src="img/logofooter.png" alt="Hangover" />
+
+		<ul>
+			<li><a href="http://amandineclerc.be/" target="_blank">Amandine Clerc</a></li>
+			<li><a href="http://b-vandegent.be/" target="_blank">Brieuc van de Gent</a></li>
+			<li><a href="http://www.julienhenet.be/" target="_blank">Julien Henet</a></li>
+			<li><a href="http://williamrobert.be/" target="_blank">William Robert</a></li>
+			<li><a class="credit" href="credits.html">Crédits</a></li>
+			<li><a class="twitter" href="https://twitter.com/Hang_over4" target="_blank"><img src="img/twitter.png" alt="twitter"/></a></li>
+			
+		</ul>
+
+
+	</footer>
+	</div> <!-- end container -->
+
+	
+</body>
+</html>
